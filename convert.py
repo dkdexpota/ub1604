@@ -14,9 +14,9 @@ for cookie in cookies:
     driver.add_cookie(cookie)
 time.sleep(1)
 print('**Conect**')
-driver.get('http://coinpot.co/coin/coinpottokens')
-for i in range(1, 100):
-    time.sleep(2)
+for i in range(1, 2):
+    driver.get('http://coinpot.co/coin/coinpottokens')
+    time.sleep(7)
     print(driver.find_element_by_xpath("//div[@class='col-xs-12 col-lg-auto']/h3").text)
     driver.find_element_by_xpath("//button[@data-target='#ConvertModal']").click()
     Kolvo = driver.find_element_by_name('ConversionAmountInput')
@@ -29,11 +29,7 @@ for i in range(1, 100):
     Select(driver.find_element_by_id('CurrencyDropdown')).select_by_value('DASH')
     driver.find_element_by_id('ConvertButton').click()
     driver.find_element_by_xpath("//button[@data-bind='text: confirmButton, click: confirm']").click()
+    driver.find_element_by_xpath("//button[@data-bind='text: confirmButton, click: confirm']").click()
     print(i)
-    time.sleep(60)
-    driver.find_element_by_xpath("//button[@data-bind='text: closeButton']").click()
-    driver.find_element_by_xpath("//button[@data-bind='click: close']").click()
+    time.sleep(2)
 driver.quit()
-
-
-

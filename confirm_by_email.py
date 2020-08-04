@@ -7,5 +7,5 @@ assert opts.headless
 src = input('src: ')
 driver = webdriver.Firefox(options = opts)
 driver.get(src)
-time.sleep(10)
+time.sleep(7)
 driver.quit()
