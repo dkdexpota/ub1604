@@ -14,7 +14,8 @@ assert opts.headless
 driver = webdriver.Firefox(options = opts)
 driver.get('http://coinpot.co')
 time.sleep(4)
-
+API = str(input())
+solver = TwoCaptcha(API)
 driver.find_element_by_xpath("//button[@data-target='#SignInModal']").click()
 
 driver.find_element_by_id('SignInEmailInput').send_keys(str(input('email')))
