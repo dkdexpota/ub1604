@@ -13,6 +13,10 @@ for cookie in cookies:
     driver.add_cookie(cookie)
 driver.get('http://coinpot.co/challenges')
 time.sleep(10)
-print(driver.find_elements_by_xpath("//html/body/div[2]/div[2]/div/div/div/div[2]/div/div[3]/div[53]/div/span")[0].text)
-print(driver.find_elements_by_xpath("//html/body/div[2]/div[2]/div/div/div/div[2]/div/div[3]/div[88]/div/span")[0].text)
+for i in range(89):
+	stroka = "//html/body/div[2]/div[2]/div/div/div/div[2]/div/div[3]/div[" + str(i) + "]/div/span"
+	try:
+		print(driver.find_elements_by_xpath(stroka)[0].text)
+	except Exception:
+		pass
 driver.quit()
