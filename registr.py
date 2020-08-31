@@ -21,7 +21,8 @@ driver.find_element_by_id('AcceptTermsInput').click()
 
 key = str(driver.find_element(By.XPATH, '//*[@id="RegisterForm"]').get_attribute("data-fv-addons-recaptcha2-sitekey"))
 pole = driver.find_element(By.XPATH, '//*[@id="g-recaptcha-response"]')
-paramet.rucap(driver, all_conf.get('API'), all_conf.get('HREF'), key, pole) #капча
+paramet.rucap(driver, all_conf.get('API'), 'http://coinpot.co', key, pole) #капча
+driver.find_element_by_xpath("//*[@id='RegisterModal']/div/div/div[3]/button").click()
 
 time.sleep(10)
 allelements = driver.find_elements_by_xpath("//*")

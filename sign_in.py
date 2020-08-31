@@ -23,9 +23,8 @@ driver.find_element_by_id('SignInPasswordInput').send_keys(all_conf.get('PASS'))
 
 key = str(driver.find_element(By.XPATH, '//*[@id="SignInForm"]').get_attribute("data-fv-addons-recaptcha2-sitekey"))
 pole = driver.find_element(By.XPATH, '//*[@id="g-recaptcha-response-1"]')
-
-paramet.rucap(driver, all_conf.get('API'), all_conf.get('HREF'), key, pole) #капча
-
+paramet.rucap(driver, all_conf.get('API'), 'http://coinpot.co', key, pole) #капча
+driver.find_element_by_xpath("//*[@id='SignInModal']/div/div/div[3]/button").click()
 time.sleep(10)
 pickle.dump( driver.get_cookies() , open("cookies.pkl","wb"))
 allelements = driver.find_elements_by_xpath("//*")
