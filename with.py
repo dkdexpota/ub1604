@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 import pickle
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
@@ -30,7 +31,10 @@ key = str(driver.find_element(By.XPATH, '//*[@id="WithdrawForm"]').get_attribute
 pole = driver.find_element(By.XPATH, '//*[@id="g-recaptcha-response"]')
 paramet.rucap(driver, all_conf.get('API'), all_conf.get('HREF'), key, pole) #капча
 driver.find_element(By.XPATH, '//*[@id="WithdrawButton"]').click()
-time.sleep(10)
+time.sleep(3)
+driver.find_element(By.XPATH, '/html/body/div[13]/div/div/div[3]/button[2]').click()
+time.sleep(3)
+
 allelements = driver.find_elements_by_xpath("//*")
 ferdigtxt = paramet.pg_txt(allelements) #текст страницы
 driver.quit()
